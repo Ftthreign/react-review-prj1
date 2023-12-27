@@ -54,7 +54,7 @@ function SkillList() {
 
 function Skill(probs) {
   return (
-    <div className="skill" style={{ backgroundColor: `${probs.color}` }}>
+    <div className="skill" style={{ backgroundColor: probs.color }}>
       <span>{probs.skill}</span>
       <span>{probs.emoji}</span>
     </div>
