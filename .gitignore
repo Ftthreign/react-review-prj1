@@ -22,3 +22,7 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+
+# Challange Mode 
+src/challange1.css
+public/images/fadhil.jpeg

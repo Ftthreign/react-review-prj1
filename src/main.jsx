@@ -81,7 +81,7 @@ function Menu() {
       />
       <Pizza
         name="Pizza Funghi"
-        ingredient="mangga, apel, jeruk"
+        ingredient="Tomato, mozarella, mushrooms, and onion"
         price={12}
         imageName="/images/funghi.jpg"
       />
