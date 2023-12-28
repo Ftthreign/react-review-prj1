@@ -1,7 +1,7 @@
 /* eslint-disable react/no-unescaped-entities */
 /* eslint-disable react-refresh/only-export-components */
 import React from "react";
-import ReactDOM from "react-dom";
+import ReactDOM from "react-dom/client";
 import "./index.css";
 
 // import App from "./App.jsx";
@@ -70,31 +70,27 @@ function Header() {
 }
 
 function Menu() {
+  const isAvailable = pizzaData;
+  const len = isAvailable.length;
+
   return (
     <main className="menu">
       <h2>Our Menu</h2>
-      <ul className="pizzas">
-        {pizzaData.map((data) => {
-          return <Pizza pizzaObject={data} key={data.name} />;
-        })}
-      </ul>
-      {/* <Pizza
-        name="Pizza Spinaci"
-        ingredient="tomato, mozarella, spinach, and ricotta cheese"
-        imageName="/images/spinaci.jpg"
-        price={10}
-      />
-      <Pizza
-        name="Pizza Funghi"
-        ingredient="Tomato, mozarella, mushrooms, and onion"
-        price={12}
-        imageName="/images/funghi.jpg"
-      /> */}
+      {len > 0 ? (
+        <ul className="pizzas">
+          {pizzaData.map((data) => {
+            return <Pizza pizzaObject={data} key={data.name} />;
+          })}
+        </ul>
+      ) : (
+        <p>Our menu is Currently Empty</p>
+      )}
     </main>
   );
 }
 
 function Pizza(probs) {
+  if (probs.pizzaObject.soldOut) return null;
   return (
     <li className="pizza">
       <img src={probs.pizzaObject.photoName} alt={probs.pizzaObject.name} />
@@ -108,9 +104,25 @@ function Pizza(probs) {
 }
 
 function Footer() {
+  const hour = new Date().getHours();
+  const openHours = 8;
+  const closedHours = 22;
+  const isOpen = hour >= openHours && hour <= closedHours;
+
+  // if (!isOpen) return <p>{new Date().toDateString()}</p>;
+
   return (
     <footer className="footer">
-      <div>{new Date().toLocaleTimeString()} We're Currently Open</div>
+      {isOpen ? (
+        <div className="order">
+          <p>
+            We're open until until {closedHours}:00. Come visit our restaurant
+          </p>
+          <button className="btn">Order</button>
+        </div>
+      ) : (
+        <p>We're closed, please come again tomorrow, Sorry</p>
+      )}
     </footer>
   );
 }
