@@ -1,8 +1,43 @@
-> THIS IS JUST REVIEW FOR ME FROM LEARN REACT.JS
+/* eslint-disable react/prop-types */
+/* eslint-disable react/jsx-key */
+/* eslint-disable react-refresh/only-export-components */
+import React from "react";
+import ReactDOM from "react-dom/client";
+import "./challange1.css";
 
-> Challange 1 Code
+const skillData = [
+  {
+    skills: "HTML+CSS",
+    level: "Advanced",
+    color: "#2662EA",
+  },
+  {
+    skills: "Javascript",
+    level: "Intermediate",
+    color: "#EDF81D",
+  },
+  {
+    skills: "Git and GitHub",
+    level: "Advanced",
+    color: "#E84F33",
+  },
+  {
+    skills: "Java",
+    level: "Beginner",
+    color: "#176B87",
+  },
+  {
+    skills: "Golang",
+    level: "Beginner",
+    color: "#e6B9DE",
+  },
+  {
+    skills: "C++",
+    level: "Intermediate",
+    color: "#ff45ff",
+  },
+];
 
-```javascript
 function App() {
   return (
     <>
@@ -73,4 +108,9 @@ function Footer() {
     </div>
   );
 }
-```
+
+ReactDOM.createRoot(document.getElementById("root")).render(
+  <React.StrictMode>
+    <App />
+  </React.StrictMode>
+);
