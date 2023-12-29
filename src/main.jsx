@@ -1,10 +1,9 @@
+/* eslint-disable react/prop-types */
 /* eslint-disable react/no-unescaped-entities */
 /* eslint-disable react-refresh/only-export-components */
 import React from "react";
 import ReactDOM from "react-dom/client";
 import "./index.css";
-
-// import App from "./App.jsx";
 
 const pizzaData = [
   {
@@ -77,11 +76,17 @@ function Menu() {
     <main className="menu">
       <h2>Our Menu</h2>
       {len > 0 ? (
-        <ul className="pizzas">
-          {pizzaData.map((data) => {
-            return <Pizza pizzaObject={data} key={data.name} />;
-          })}
-        </ul>
+        <>
+          <p>
+            Authentic Italian cuisine. 6 Creative dishes to choose form. All
+            from our stone oven, all organic, all delicious
+          </p>
+          <ul className="pizzas">
+            {pizzaData.map((data) => {
+              return <Pizza pizzaObject={data} key={data.name} />;
+            })}
+          </ul>
+        </>
       ) : (
         <p>Our menu is Currently Empty</p>
       )}
@@ -89,15 +94,14 @@ function Menu() {
   );
 }
 
-function Pizza(probs) {
-  if (probs.pizzaObject.soldOut) return null;
+function Pizza({ pizzaObject }) {
   return (
-    <li className="pizza">
-      <img src={probs.pizzaObject.photoName} alt={probs.pizzaObject.name} />
+    <li className={`${pizzaObject.soldOut ? "pizza sold-out" : "pizza"}`}>
+      <img src={pizzaObject.photoName} alt={pizzaObject.name} />
       <div>
-        <h3>{probs.pizzaObject.name}</h3>
-        <p>{probs.pizzaObject.ingredients}</p>
-        <span>{probs.pizzaObject.price + 3}</span>
+        <h3>{pizzaObject.name}</h3>
+        <p>{pizzaObject.ingredients}</p>
+        <span>{pizzaObject.soldOut ? "SOLD OUT  " : pizzaObject.price}</span>
       </div>
     </li>
   );
@@ -105,25 +109,30 @@ function Pizza(probs) {
 
 function Footer() {
   const hour = new Date().getHours();
-  const openHours = 8;
+  const openHours = 3;
   const closedHours = 22;
   const isOpen = hour >= openHours && hour <= closedHours;
-
-  // if (!isOpen) return <p>{new Date().toDateString()}</p>;
 
   return (
     <footer className="footer">
       {isOpen ? (
-        <div className="order">
-          <p>
-            We're open until until {closedHours}:00. Come visit our restaurant
-          </p>
-          <button className="btn">Order</button>
-        </div>
+        <Order closedHours={closedHours} openHours={openHours} />
       ) : (
         <p>We're closed, please come again tomorrow, Sorry</p>
       )}
     </footer>
+  );
+}
+
+function Order({ closedHours, openHours }) {
+  return (
+    <div className="order">
+      <p>
+        We're open from {openHours}:00 until {closedHours}:00. Come visit our
+        restaurant
+      </p>
+      <button className="btn">Order</button>
+    </div>
   );
 }
 
