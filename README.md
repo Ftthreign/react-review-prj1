@@ -74,3 +74,47 @@ function Footer() {
   );
 }
 ```
+
+> Challange 2 Code
+
+```javascript
+import { useState } from "react";
+
+export default function App() {
+  return (
+    <div>
+      <Counter />
+    </div>
+  );
+}
+
+function Counter() {
+  const [count, setCount] = useState(0);
+  const [step, setStep] = useState(1);
+
+  const date = new Date();
+  date.setDate(date.getDate() + count);
+  return (
+    <>
+      <div className="data">
+        <button onClick={() => setStep((e) => (e > 1 ? e - 1 : e))}>-</button>
+        <p>Step : {step}</p>
+        <button onClick={() => setStep((e) => (e < 10 ? e + 1 : e))}>+</button>
+      </div>
+      <div className="data">
+        <button onClick={() => setCount((e) => e - step)}>-</button>
+        <p>Count : {count}</p>
+        <button onClick={() => setCount((e) => e + step)}>+</button>
+      </div>
+      <p className="data">
+        <span>
+          {count === 0 && "Today is "}
+          {count > 0 && `${count} days from today is `}
+          {count < 0 && `${Math.abs(count)} days ago was`}
+        </span>
+        <span> : {date.toDateString()}</span>
+      </p>
+    </>
+  );
+}
+```
