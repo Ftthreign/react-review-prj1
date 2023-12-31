@@ -118,3 +118,57 @@ function Counter() {
   );
 }
 ```
+
+> Challange 3 Code
+
+```javascript
+function Counter() {
+  const [count, setCount] = useState(0);
+  const [step, setStep] = useState(1);
+
+  function reset() {
+    setCount(0);
+    setStep(1);
+  }
+
+  const date = new Date();
+  date.setDate(date.getDate() + count);
+
+  return (
+    <>
+      <div>
+        <input
+          type="range"
+          min="1"
+          max="366"
+          value={step}
+          onChange={(e) => setStep(Number(e.target.value))}
+        />
+        <span>Step : {step}</span>
+      </div>
+      <div>
+        <button onClick={() => setCount((e) => e - step)}> -</button>
+        <input
+          type="text"
+          value={`${count} days`}
+          onChange={() => setCount((e) => Number(e.target.value))}
+        />
+        <button onClick={() => setCount((e) => e + step)}>+</button>
+      </div>
+      <p>
+        <span>
+          {count === 0 && "Today date is "}
+          {count > 0 && `${count} days from today is `}
+          {count < 0 && `${Math.abs(count)} days ago was `}
+        </span>
+        <span>{date.toDateString()}</span>
+      </p>
+      <span>
+        {count !== 0 || step !== 0 ? (
+          <button onClick={reset}>Reset</button>
+        ) : null}
+      </span>
+    </>
+  );
+}
+```
