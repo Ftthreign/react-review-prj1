@@ -4,6 +4,8 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
 import "./index.css";
+// import App from "./challange/challange3.jsx";
+// import App from "./exercise/exercise2.jsx";
 
 const pizzaData = [
   {
