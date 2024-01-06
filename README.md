@@ -145,11 +145,6 @@ function Counter() {
 function App() {
   const [items, setItems] = useState([]);
 
-  // function handleAddItems(em) {
-  //   // THE ARRAY MUST IMMUTABLE
-  //   setItems((data) => [...data, em]);
-  // }
-
   function handleDeleteItem(id) {
     setItems((remove) => remove.filter((item) => item.id !== id));
   }
@@ -279,3 +274,15 @@ function Stats() {
 
 export default App;
 ```
+
+> When to use State in React?
+
+<div style="text-align:center;">
+  <img src="public/When-to-use.png" alt="When to use">
+</div>
+
+> Where to use State in React?
+
+<div style="text-align:center;">
+  <img src="public/Where-to-use.png" alt="Where to use">
+</div>
