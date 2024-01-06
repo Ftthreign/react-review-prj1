@@ -277,11 +277,17 @@ export default App;
 
 > When to use State in React?
 
+> When to use State in React?
+> <br><br>
+
 <p align="center">
   <img src="public/When-to-use.png" alt="When to use">
 </p>
 
+<br><br>
+
 > Where to use State in React?
+> <br><br>
 
 <p align="center">
   <img src="public/Where-to-use.png" alt="Where to use">
