@@ -276,8 +276,6 @@ export default App;
 ```
 
 > When to use State in React?
-
-> When to use State in React?
 > <br><br>
 
 <p align="center">
