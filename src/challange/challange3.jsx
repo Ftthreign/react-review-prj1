@@ -1,88 +1,94 @@
-/* eslint-disable react/prop-types */
 import { useState } from "react";
-
+import "./styleChallange3.css";
+/* eslint-disable react/prop-types */
 function App() {
   return (
-    <div>
-      <TipCalculator />
+    <div className="card">
+      <TipCalculator>
+        <h2 className="title">TIP CALCULATOR</h2>
+      </TipCalculator>
     </div>
   );
 }
 
-function TipCalculator() {
+function TipCalculator({ children }) {
   const [bill, setBill] = useState("");
-  const [percentageMe, setPercentageMe] = useState(0);
-  const [percentageFriend, setPercentageFriend] = useState(0);
+  const [myTip, setMyTip] = useState(0);
+  const [myFriendTip, setmyFriendTip] = useState(0);
 
-  const totalBill = bill * ((percentageMe + percentageFriend) / 100);
+  const percentage = bill * ((2.5 * (0.1 * myTip + 0.1 * myFriendTip)) / 10);
 
   function handleReset() {
     setBill("");
-    setPercentageMe(0);
-    setPercentageFriend(0);
+    setMyTip(0);
+    setmyFriendTip(0);
   }
+
   return (
     <div>
-      <BillInput valueOf={bill} onSetBill={setBill} />
-      <StatusServices percentage={percentageMe} onPercentage={setPercentageMe}>
+      {children}
+      <BillInput billValue={bill} onChangeBillValue={setBill} />
+      <SelectPercentage myTip={myTip} onSetTip={setMyTip}>
         How did you like the service?
-      </StatusServices>
-      <StatusServices
-        percentage={percentageFriend}
-        onPercentage={setPercentageFriend}
-      >
+      </SelectPercentage>
+      <SelectPercentage myTip={myFriendTip} onSetTip={setmyFriendTip}>
         How did your friend like the service?
-      </StatusServices>
+      </SelectPercentage>
+
       {bill > 0 && (
         <>
-          <Output bill={bill} tip={totalBill} />
-          <Reset handleReset={handleReset} />
+          <Output bill={bill} totalBill={percentage} />
+          <Reset onReset={handleReset} />
         </>
       )}
     </div>
   );
 }
 
-function BillInput({ valueOf, onSetBill }) {
+function BillInput({ billValue, onChangeBillValue }) {
   return (
     <div>
-      <label>How much was the bill : </label>
+      <label>How much was the bill? </label>
       <input
-        type="text"
-        value={valueOf}
-        placeholder="input your bill here"
-        onChange={(e) => onSetBill(Number(e.target.value))}
+        type="number"
+        placeholder="Input your price here"
+        step="10"
+        value={billValue}
+        onChange={(e) => onChangeBillValue(Number(e.target.value))}
       />
     </div>
   );
 }
-function StatusServices({ children, onPercentage, percentage }) {
+
+function SelectPercentage({ myTip, onSetTip, children }) {
   return (
-    <div style={{ display: "flex", gap: "20px", margin: "20px 0 " }}>
+    <div style={{ display: "flex", margin: "20px 0 ", gap: "20px" }}>
       <p>{children}</p>
       <select
-        value={percentage}
-        onChange={(e) => onPercentage(Number(e.target.value))}
+        className="select-element"
+        value={myTip}
+        onChange={(e) => onSetTip(Number(e.target.value))}
       >
-        <option value="0">Dissatisfied (0%)</option>
-        <option value="5">it was Okay (5%)</option>
-        <option value="10">it was good (10%)</option>
-        <option value="15">Absolutely Amazing (20%)</option>
+        <option value="1">Sangat Buruk</option>
+        <option value="2">Kurang Memuaskan</option>
+        <option value="3">Lumayan</option>
+        <option value="4">Baik</option>
+        <option value="5">Sangat Baik</option>
       </select>
     </div>
   );
 }
-function Output({ bill, tip }) {
+
+function Output({ bill, totalBill }) {
   return (
-    <div>
-      <h1>{`You Pay $${Number(bill + tip)} ($${bill} + $${tip.toFixed(
-        2
-      )} tip)`}</h1>
-      ;
-    </div>
+    <h3>{`You must pay Rp. ${
+      bill + totalBill
+    } (Rp. ${bill} + Tip : ${totalBill.toFixed(2)})`}</h3>
   );
 }
-function Reset({ handleReset }) {
-  return <button onClick={handleReset}>Reset</button>;
+
+function Reset({ onReset }) {
+  return <button onClick={onReset}>Reset </button>;
 }
+
 export default App;
