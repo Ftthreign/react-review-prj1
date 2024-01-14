@@ -33,8 +33,8 @@ export default function App() {
 
 function TextExpander({
   collapsedNumWords = 10,
-  expandButtonText = "Show Text",
-  collapseButtonText = "Collapse text",
+  expandButtonText = "Show More",
+  collapseButtonText = "Collapse Less",
   buttonColor = "#1f09cd",
   children,
   className,
