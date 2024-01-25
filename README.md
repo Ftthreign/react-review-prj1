@@ -1,18 +1,18 @@
 > THIS IS JUST REVIEW FOR ME FROM LEARN REACT.JS
 
-> Challange 1 Code
+> Challange 1 Code - REACT FUNDAMENTAL
 
 Go to [Challange 1 Code](src/challange/challange1.jsx)
 
-> Challange 2 Code
+> Challange 2 Code - Events in REACT
 
 Go to [Challange 2 Code](src/challange/challange2.jsx)
 
-> Challange 3 Code
+> Challange 3 Code - STATE Management (Derive state, lifting up state)
 
 Go to [Challange 3 Code](src/challange/challange3.jsx)
 
-> Challange 4 Code
+> Challange 4 Code - Component Reusability and Component API
 
 Go to [Challange 4 Code](src/challange/challange4.jsx)
 
