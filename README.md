@@ -16,6 +16,10 @@ Go to [Challange 3 Code](src/challange/challange3.jsx)
 
 Go to [Challange 4 Code](src/challange/challange4.jsx)
 
+> Challange 5 Code - UseEffect Hook
+
+Go to [Challange 5 Code](src/challange/challange5.jsx)
+
 > When to use State in React?
 
 <br><br>
