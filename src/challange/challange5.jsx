@@ -27,6 +27,16 @@ export default function App() {
     }
   }
 
+  const currencyData = ["USR", "EUR", "CAD", "INR", "IDR", "JPY"];
+
+  const optionCurrency = currencyData.map((value) => {
+    return (
+      <option key={value} value={value}>
+        {value}
+      </option>
+    );
+  });
+
   return (
     <div>
       <input type="text" value={currency} onChange={handleCurrencyChange} />
@@ -34,24 +44,25 @@ export default function App() {
         onChange={(e) => setCurCurrency(e.target.value)}
         value={curCurrency}
       >
-        <option value="USD">USD</option>
-        <option value="EUR">EUR</option>
-        <option value="CAD">CAD</option>
-        <option value="INR">INR</option>
+        {optionCurrency}
       </select>
       <select
         onChange={(e) => setToCurrency(e.target.value)}
         value={toCurrency}
       >
-        <option value="USD">USD</option>
-        <option value="EUR">EUR</option>
-        <option value="CAD">CAD</option>
-        <option value="INR">INR</option>
+        {optionCurrency}
       </select>
-      <p>
-        converted to {Converted}
-        {toCurrency}
-      </p>
+
+      {/* conditional rendering to check if currency is not same */}
+      {curCurrency !== toCurrency ? (
+        <p>
+          {`the ${curCurrency} ${currency} converted to ${Converted.toLocaleString(
+            "en-US"
+          )} ${toCurrency} `}
+        </p>
+      ) : (
+        <p>The currency is same </p>
+      )}
     </div>
   );
 }
