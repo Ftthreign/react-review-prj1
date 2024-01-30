@@ -20,13 +20,16 @@ export default function App() {
     fetchAPI();
   }, [curCurrency, currency, toCurrency]);
 
+  function handleCurrencyChange(e) {
+    const val = Number(e.target.value);
+    if (val !== 0) {
+      setCurrency(value);
+    }
+  }
+
   return (
     <div>
-      <input
-        type="text"
-        value={currency}
-        onChange={(e) => setCurrency(Number(e.target.value))}
-      />
+      <input type="text" value={currency} onChange={handleCurrencyChange} />
       <select
         onChange={(e) => setCurCurrency(e.target.value)}
         value={curCurrency}
