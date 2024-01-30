@@ -23,7 +23,7 @@ export default function App() {
   function handleCurrencyChange(e) {
     const val = Number(e.target.value);
     if (val !== 0) {
-      setCurrency(value);
+      setCurrency(val);
     }
   }
 
