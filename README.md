@@ -126,3 +126,39 @@ This React Elements will eventually be converted to actual **DOM Elements (HTML)
 
 **NOTE :**
 It's not react elements that are rendered to the DOM. React elements just live inside the React App and have nothing to do with the DOM. They are simply converted to DOM elements when they are painted on the screen
+
+> UseEffect Hook dependency Array
+
+**When to use Dependency Array**
+
+There are three types of dependency array
+
+1. Without dependency Array
+
+```javascript
+useEffect(() => {
+  console.log("Executed every render or after every render");
+});
+```
+
+This will be executed every render or after the component render or re-renders
+
+2. With Empty dependency Array
+
+```javascript
+useEffect(() => {
+  console.log("Executed After Initial render");
+}, []);
+```
+
+This will be executed when the component firstly renders or initial renders.
+
+3. With dependency Array
+
+```javascript
+useEffect(() => {
+  console.log("After triggered by state or variable");
+}, [data]);
+```
+
+This will be executed when the state data or variable data has changed or has rendered
