@@ -20,6 +20,10 @@ Go to [Challange 4 Code](src/challange/challange4.jsx)
 
 Go to [Challange 5 Code](src/challange/challange5.jsx)
 
+> Challange 6 Code - Custom Hooks
+
+Go to [Challange 6 Code](src/challange/challange6.jsx)
+
 > When to use State in React?
 
 <br><br>
