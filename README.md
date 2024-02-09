@@ -24,6 +24,10 @@ Go to [Challange 5 Code](src/challange/challange5.jsx)
 
 Go to [Challange 6 Code](src/challange/challange6.jsx)
 
+> Class based Component
+
+Go to [Class based Component](src/class-based-comp/App.jsx)
+
 > When to use State in React?
 
 <br><br>
