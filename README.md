@@ -170,3 +170,58 @@ useEffect(() => {
 ```
 
 This will be executed when the state data or variable data has changed or has rendered
+
+<br>
+
+> useReducer Hooks
+
+```javascript
+
+const [state, dispatch] = useReducer(reducer, initialState, init?)
+```
+
+useReducer is one of the hooks provided by React. It's used to manage complex state in functional components. Similar to useState, but more suitable for complex state, especially if the state has complex logic as well. It takes a reducer function as the first argument and initial state as the second argument. The reducer function receives the previous state and an action,
+
+**Usage**
+
+```javascript
+// this will be initial state
+const initialState = {
+  step: 1,
+  count: 0,
+};
+
+// this will be reducer function
+
+function reducer(state, action) {
+  switch (action.type) {
+    case "INCREMENT":
+      return { ...state, count: state.count + state.step };
+    case "DECREMENT":
+      return { ...state, count: state.count - state.step };
+    case "RESET":
+      return initialState;
+    default:
+      throw new Error("Unknown Action");
+  }
+}
+
+// usage on components
+
+function Component() {
+  const [state, dispatch] = useReducer(reducer, initialState);
+
+  const handleReset = () => {
+    // this will be back to initial State
+    dispatch({ type: "RESET" });
+  };
+
+  const handleDecrement = () => {
+    dispatch({ type: "DECREMENT", value: -1 });
+  };
+
+  const handleIncrement = () => {
+    dispatch({ type: "INCREMENT", value: 1 });
+  };
+}
+```
