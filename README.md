@@ -132,6 +132,26 @@ This React Elements will eventually be converted to actual **DOM Elements (HTML)
 
 ---
 
+**Thinking in React :**
+Component Categories :
+
+**_1. Stateless / presentational components_**
+
+- No State
+- Can receive probs and simply present received data or other content
+- Usually small and reusable
+
+**_2. Stateful components_**
+
+- Have State
+- Can still be reusable
+
+**_3. Structural components_**
+
+- "Pages", "Layout", or "screens" of the app
+- Result of composition
+- Can be huge and non-reusable (but don't have to reuse it)
+
 **NOTE :**
 It's not react elements that are rendered to the DOM. React elements just live inside the React App and have nothing to do with the DOM. They are simply converted to DOM elements when they are painted on the screen
 
