@@ -28,6 +28,10 @@ Go to [Challange 6 Code](src/challange/challange6.jsx)
 
 Go to [Class based Component](src/class-based-comp/App.jsx)
 
+> useReducer
+
+Go to [Challange 7 code](src/challange/challange7.jsx)
+
 > When to use State in React?
 
 <br><br>
