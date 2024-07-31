@@ -245,3 +245,27 @@ function Component() {
   };
 }
 ```
+
+> useState vs useReducer
+
+**useStae**
+
+- Ideal for single, independent pieces of state
+- Logic to update state is placed directly in event handlers or effects, spread all over one or multiple components
+- State is updated by calling setState (setter returned from useState)
+- Imperative state updates
+- Easy to understand and to use
+
+**useReducer**
+
+- Ideal for multiple pieces of state and complex state
+- Logic to update state lives in one central place, decoupled from components : **The Reducer**
+- State is updated by dispatching an action to a reducer
+- Declarative state updates : complex state transitions are mapped to actions
+- More difficult to understand and implement
+
+> When to use useReducer
+
+<p align="center">
+  <img src="public/useReducer.png" alt="When to use useReducer">
+</p>
